@@ -1,0 +1,77 @@
+a:link {
+	font-size: 20px;
+	font-family: Arial Black;
+	color: gold;
+    padding: 10px;
+    text-decoration: none;
+}
+a:hover {
+	color: palegoldenrod;
+} 
+a:visited {
+	color: darkgoldenrod;
+}
+body {
+	text-align: center;
+	background-color: hotpink;
+	color: black;
+	height: 100%;
+}
+h1, h2, p, div, a {
+    text-align: center;
+    color: #82145f
+}
+ul {
+    padding: 0;
+    text-align: center;
+    color: #3e9e69;
+    display: flex;
+    list-style-type: none;
+}
+
+img {
+	width: 100%;
+	text-align: center;
+}
+
+/*li:before { 
+  content: '✧ '; 
+  color: #3e9e69;
+  }
+li::after {
+    content: '✧ ';
+    color: #3e9e69;
+}*/
+
+.image-swap .img-hover {
+    display: none;
+}
+
+.image-swap:hover .img-default {
+    display: none;
+}
+
+.image-swap:hover .img-hover {
+    display: block; 
+}
+
+.animated-rainbow-text {
+    font-size: 42px;
+    font-family: Arial Black, Gadget, sans-serif;
+    animation: rainbow-color-change 7s linear infinite alternate;
+}
+@keyframes rainbow-color-change {
+    0%, 100% { color: #fa52db; } 
+    14% { color: #fa5269; } 
+    28% { color: #fae652; } 
+    42% { color: #82fa52; }
+    56% { color: #52faf7; } 
+    70% { color: #7177f5; } 
+    84% { color: #9653ed; } 
+}
+
+.side-by-side {
+  display: flex; /* Aligns child elements in a row */
+  justify-content: center; /* Centers the images horizontally (optional) */
+  gap: 10px; /* Adds space between images (optional, modern approach) */
+}
