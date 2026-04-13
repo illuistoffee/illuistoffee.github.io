@@ -17,10 +17,13 @@ body {
 	color: black;
 	height: 100%;
 }
-h1, h2, p, div, a {
+h1, h2, div, a, p {
     text-align: center;
-    color: #82145f
+    color: #82145f;
+	padding-left: 50px;
+	padding-right: 50px;
 }
+
 ul {
     padding: 0;
     text-align: center;
@@ -56,7 +59,7 @@ li::after {
 }
 
 .animated-rainbow-text {
-    font-size: 42px;
+    font-size: 40px;
     font-family: Arial Black, Gadget, sans-serif;
     animation: rainbow-color-change 7s linear infinite alternate;
 }
