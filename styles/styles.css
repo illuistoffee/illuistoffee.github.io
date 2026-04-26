@@ -20,8 +20,8 @@ body {
 h1, h2, div, a, p {
     text-align: center;
     color: #82145f;
-	padding-left: 50px;
-	padding-right: 50px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 ul {
