@@ -4,6 +4,10 @@ var opacity = 0;
 var rectSize = 50
 let timer = 10;
 
+function preload(){
+  song1 = loadSound('https://illuistoffee.github.io/files/adventure_start.wav');
+}
+
 function setup() {
   createCanvas(800, 800);
   textAlign(CENTER);
@@ -17,6 +21,7 @@ function setup() {
     speed: 4,
     size: 40
   }
+  
   
 } 
   
@@ -109,6 +114,9 @@ function intro(){
 
 function wander(){
   background(250,245,170);
+  song1.play();
+
+  
   if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) { 
     player.x -= player.speed; 
   }
@@ -130,6 +138,8 @@ function wander(){
   
   fill(0);
   text("wasd or arrow keys to move!", 180, height - 20);
+  
+  
   
   rect();
   //   var distToBall = dist(ballx, bally, mouseX, mouseY);
