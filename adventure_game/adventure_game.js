@@ -1,15 +1,23 @@
 let player;
-var gameState = "wander";
+let token = 0;
+var gameState = "START";
 var opacity = 0;
 var rectSize = 50
 let timer = 10;
 let audio = false;
 let song1;
 let hallway;
+let stargazing;
+let npc1 = false;
+let npc2 = false;
+let npc3 = false;
+let score = 0;
+
 
 function preload(){
   song1 = loadSound('https://illuistoffee.github.io/files/adventure.mp3');
   hallway = loadSound('https://illuistoffee.github.io/files/hallway.mp3');
+  stargazing = loadSound('https://illuistoffee.github.io/files/stargazing.mp3');
 }
 
 function setup() {
@@ -96,7 +104,7 @@ function scene1() {
   endShape(CLOSE);
   
   noStroke();
-  fill(255);
+  fill(200);
   rect(rectX, yPos+opacity/4, rectSize, rectSize);
   text("move forward with 'w' or up arrow key", width/2, height-20);
   fill(255, 255, 255, opacity);
@@ -137,7 +145,7 @@ function wander(){
     player.x -= player.speed; 
   }
   if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
-    player.x += player.speed;w 
+    player.x += player.speed; 
   }
   if (keyIsDown(UP_ARROW) || keyIsDown(87)){
     player.y -= player.speed;
@@ -152,20 +160,89 @@ function wander(){
   noStroke();
   circle(player.x, player.y, player.size);
   
-  fill(0,0,0, blink2);
-  textSize(20);
-  text("wasd or arrow keys to move!", 180, height - 20);
-  
   fill(0);
   rect(390,80,20);
+  rect(80,400,20);
   
-  if (player.x < 0){}
-  //   var distToBall = dist(ballx, bally, mouseX, mouseY);
-  // if player.x 
-  // press space 2 interact
+  fill(0,0,0, blink2);
+  textSize(20);
+  
+  if (350 < player.x && player.x < 440 && player.y > 50 && player.y < 120){
+    text("Press space to interact.", 160, height - 20);
+    if (keyIsDown(32)){
+      npc1 = true;  
+    }
+    if (npc1){
+      fill(0);
+      rect(width/2, 700, 780, 190)
+      fill(255);
+      text("hi! would you like to play a game for a token?", width/2, 650);
+      text("sure! (c)", 100, 760);
+      text("nahh. (b)", 700, 760);
+      if (keyIsDown(66)){
+        npc1 = false;
+      }
+      if (keyIsDown(67)){
+        gameState = "rhythm";
+        npc1 = false;
+        song1.setVolume(0, 3);
+      }
+    }
+  } 
+  
+  else if (40 < player.x && player.x < 120 && player.y > 360 && player.y < 440){
+    text("Press space to interact.", 160, height - 20);
+    if (keyIsDown(32)){
+      npc1 = true;  
+    }
+    if (npc1){
+      fill(0);
+      rect(width/2, 700, 780, 190)
+      fill(255);
+      text("placeholder :P", width/2, 650);
+      //text("sure! (c)", 100, 760);
+      text("back (b)", 700, 760);
+      if (keyIsDown(66)){
+        npc1 = false;
+      }
+      if (keyIsDown(67)){
+        gameState = "rhythm";
+        npc1 = false;
+        song1.setVolume(0, 3);
+      }
+    }
+  } 
+  else {
+    text("wasd or arrow keys to move!", 180, height - 20);
+  }
   
 }
 
 function rhythm(){
-
+  let arrowY = 800;
+  
+  fill(0);
+  rect(width/2, 700, 780, 190);
+  fill(255);
+  text("great! we can start when you are ready.", width/2, 650);
+  text("press space to start.", width/2, 700);
+  
+  if (keyIsDown(32)){
+    npc1 = true;
+    song1.stop();
+    stargazing.setVolume(1, 2);
+    stargazing.play();
+  }
+  if (npc1){
+    background(20);
+    fill(255);
+    noStroke();
+    triangle(30, 75, 58, 20, 86, 75);
+    fill(0);
+    rect(width/2, 700, 780, 190);
+    fill(255);
+    text("score: " + score, width/2, 700);
+  }
+  
+  
 }
